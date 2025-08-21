@@ -1,6 +1,6 @@
 # Theory
 ## WHY - 1
-> Building a game means building a theory first. Theory for what? for fun. The purpose of this game is to be a **emulator to stress, health and senses**.
+> Building a game means building a theory first. Theory for what? for fun. The purpose of this game is to be an **emulator to stress, health and senses**.
 
 While envisioning something might be trivial, building it while preserving the vision is nearly an uneneding-game.
 
@@ -16,7 +16,8 @@ While envisioning something might be trivial, building it while preserving the v
 ### TO-DO
   * implement 24-bit colors for print 
     * e.g. 24-bit color is \e[38;2;r;g;b;m for foreground and \e[48;2;r;g;b;m for background, where r, g, and b are values from 0 to 255.
+  * replace game/kind.json with a weights from a trained nn
 
 > #note: 
-    1. Choice creates class object heirarchy tree 
-    2. 
+    1. Choice creates Psyche which is just a tree <3
+    2.  
