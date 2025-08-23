@@ -20,4 +20,4 @@ While envisioning something might be trivial, building it while preserving the v
 
 > #note: 
     1. Choice creates Psyche which is just a tree <3
-    2.  
+    2. EI="perceive, understand, and manage emotions for better decision-making and relationships." 
