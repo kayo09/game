@@ -1,6 +1,8 @@
-# nonono. util/psyz.sh
-#!/bin/sh
-export COLS=$(tput cols)
-export ROWS=$(tput lines)
+### . util/psyz.sh && ../screen.c
+#! /bin/sh
+COLS=$(tput cols)
+ROWS=$(tput lines)
 
-echo "[DEBUG:]Terminal is ${COLS}x${ROWS}"
+# echo "{\n\"COLS\": $COLS,\n\"ROWS\": $ROWS\n}" > rowcol.json
+echo $COLS CR $ROWS > rowcol.txt
+echo "[DEBUG:]Terminal is $COLS x $ROWS"
