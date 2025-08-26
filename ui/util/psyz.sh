@@ -1,4 +1,3 @@
-### . util/psyz.sh && ../screen.c
 #! /bin/sh
 COLS=$(tput cols)
 ROWS=$(tput lines)
