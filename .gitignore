@@ -1,4 +1,5 @@
 .i
 .*
-.DS_Store/
+**/ .DS_Store
+WARP.MD/
 !/.gitignore
