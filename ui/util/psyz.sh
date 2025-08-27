@@ -1,3 +1,4 @@
+#Author: Krutarth Nimisha Rajiv Parmar
 #! /bin/sh
 COLS=$(tput cols)
 ROWS=$(tput lines)

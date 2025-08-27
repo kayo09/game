@@ -5,16 +5,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include "screen.h"
 
 int term_rows=0;
 int term_cols=0;
-
-// State handling
-typedef struct {
-    int frame0, frame1;
-    char status[3];
-    char** frame_buffer;
-} ScreenState;
 
 ScreenState* init_screen_state(int rows, int cols){
     ScreenState* state = (ScreenState*)malloc(sizeof(ScreenState));
@@ -63,22 +57,15 @@ void free_screen_state(ScreenState* state, int rows){
 void frame(ScreenState* state){
 //    clock_t start_t; add clock safeguard after tests
 //    start_t = clock();
-  
-    // Support up to 8K displays and ultra-wide monitors
-    const int MAX_COLS = 1000;  // Support ultra-wide monitors
-    const int MAX_ROWS = 500;   // Support tall terminals
-    const int MIN_COLS = 10;    // Minimum usable width
-    const int MIN_ROWS = 5;     // Minimum usable height
-    
-    if(term_cols < MIN_COLS || term_rows < MIN_ROWS) {
-        printf("Terminal too small for game UI: %dx%d (minimum: %dx%d)\n", 
-               term_cols, term_rows, MIN_COLS, MIN_ROWS);
+
+    if (term_cols < SCREEN_MIN_COLS || term_rows < SCREEN_MIN_ROWS) {
+        printf("Terminal too small for game UI: %dx%d (minimum: %dx%d)\n",
+               term_cols, term_rows, SCREEN_MIN_COLS, SCREEN_MIN_ROWS);
         return;
     }
-    
-    if(term_cols > MAX_COLS || term_rows > MAX_ROWS) {
-        printf("Terminal dimensions exceed maximum: %dx%d (maximum: %dx%d)\n", 
-               term_cols, term_rows, MAX_COLS, MAX_ROWS);
+    if (term_cols > SCREEN_MAX_COLS || term_rows > SCREEN_MAX_ROWS) {
+        printf("Terminal dimensions exceed maximum: %dx%d (maximum: %dx%d)\n",
+               term_cols, term_rows, SCREEN_MAX_COLS, SCREEN_MAX_ROWS);
         return;
     }
     
@@ -122,18 +109,14 @@ int main(){
     if(fgets(buffer, sizeof(buffer), f)!=NULL){
         if (sscanf(buffer, "%d CR %d", &term_cols, &term_rows)==2){
             // Use consistent validation limits with frame() function
-            const int MAX_COLS = 1000;
-            const int MAX_ROWS = 500;
-            const int MIN_COLS = 10;
-            const int MIN_ROWS = 5;
-            
-            if(term_cols < MIN_COLS || term_rows < MIN_ROWS || 
-               term_cols > MAX_COLS || term_rows > MAX_ROWS){
-                fprintf(stderr, "Terminal dimensions out of range: %dx%d (valid range: %dx%d to %dx%d)\n", 
-                        term_cols, term_rows, MIN_COLS, MIN_ROWS, MAX_COLS, MAX_ROWS);
+            if (term_cols < SCREEN_MIN_COLS || term_rows < SCREEN_MIN_ROWS ||
+                term_cols > SCREEN_MAX_COLS || term_rows > SCREEN_MAX_ROWS) {
+                fprintf(stderr, "Terminal dimensions out of range: %dx%d (valid range: %dx%d to %dx%d)\n",
+                        term_cols, term_rows, SCREEN_MIN_COLS, SCREEN_MIN_ROWS, SCREEN_MAX_COLS, SCREEN_MAX_ROWS);
                 fclose(f);
                 return 1;
             }
+
             printf("[DEBUG:]Successfully read dimensions: %d columns x %d rows\n", term_cols, term_rows);
             
             // Initialize ScreenState
@@ -153,3 +136,4 @@ int main(){
     fclose(f);
     return 0;
 }
+//see: kayparmar[!=].com

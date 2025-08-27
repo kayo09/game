@@ -17,9 +17,13 @@ While envisioning something might be trivial, building it while preserving the v
    a. elements of art is based on geometry
 
 ### TO-DO
-- add state to screen.c for frame
+- ~~add state to screen.c for frame~~
+- add wiremesh engine (preferably rust-lang)
 - create engine for voxel creation (bw)
-- 
 > #note: 
     1. Choice creates Psyche which is just a tree <3
     2. EI="perceive, understand, and manage emotions for better decision-making and relationships." 
+
+see:- https://docs.rust-embedded.org/book/interoperability/c-with-rust.html
+   -  https://github.com/EvanCMcPheron/Ascii-Renderer
+![xkcd](ui_vs_ux_vs_2x.png)
