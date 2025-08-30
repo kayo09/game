@@ -1,6 +1,6 @@
 //Author: i hate it
 //screen interface
-#ifndef SCREEN_H
+#ifdef SCREEN_H
 #define SCREEN_H
 
 #include <stddef.h>  // for size_t if you later switch indices
@@ -62,6 +62,4 @@ void frame(ScreenState* state);
 #ifdef __cplusplus
 } // extern "C"
 #endif
-
-#endif // SCREEN_H
 //see: kayparmar[!=].com
