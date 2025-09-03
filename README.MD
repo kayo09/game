@@ -27,3 +27,6 @@ While envisioning something might be trivial, building it while preserving the v
 see:- https://docs.rust-embedded.org/book/interoperability/c-with-rust.html
    -  https://github.com/EvanCMcPheron/Ascii-Renderer
 ![xkcd](ui_vs_ux_vs_2x.png)
+
+# Bibliography
+* https://www.americanscientist.org/sites/americanscientist.org/files/2013416124139665-2013-05Hayes.pdf
